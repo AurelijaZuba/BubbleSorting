@@ -12,12 +12,13 @@ public class BubbleSorting {
 
 
         for (int i = 0; i < objects.size() -1; i++) {
+            for (int j = 0; j < objects.size() - 1; j++) {
 
-            Integer itemA = objects.get(i);
-            Integer itemB = objects.get(i + 1);
-            if(shouldSwap(itemA, itemB))
-            {
-                swapItems(objects, i);
+                Integer itemA = objects.get(j);
+                Integer itemB = objects.get(j + 1);
+                if (shouldSwap(itemA, itemB)) {
+                    swapItems(objects, j);
+                }
             }
         }
 
