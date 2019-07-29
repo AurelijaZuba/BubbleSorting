@@ -12,46 +12,30 @@ public class BubbleSorting {
         }
 
         if(objects.size() == 2) {
-            Integer itemA = objects.get(0);
-            Integer itemB = objects.get(1);
-
-            if(shouldSwap(itemA, itemB)) {
-                result.add(itemB);
-                result.add(itemA);
-            }
+            result = processItems(result, objects.get(0), objects.get(1));
 
         }
 
         if(objects.size() == 3) {
-            Integer itemA = objects.get(0);
-            Integer itemB = objects.get(1);
-
-            if(shouldSwap(itemA, itemB)) {
-                result.add(itemB);
-                result.add(itemA);
-            }
+            result = processItems(result, objects.get(0), objects.get(1));
 
             result.add(objects.get(2));
         }
 
         if(objects.size() == 4) {
-            Integer itemA = objects.get(0);
-            Integer itemB = objects.get(1);
+            result = processItems(result, objects.get(0), objects.get(1));
 
-            if(shouldSwap(itemA, itemB)) {
-                result.add(itemB);
-                result.add(itemA);
-            }
-
-            Integer itemC = objects.get(2);
-            Integer itemD = objects.get(3);
-
-            if(shouldSwap(itemC, itemD)) {
-                result.add(itemD);
-                result.add(itemC);
-            }
+            result = processItems(result, objects.get(2), objects.get(3));
         }
 
+        return result;
+    }
+
+    private List<Integer> processItems(List<Integer> result, Integer itemA, Integer itemB) {
+        if (shouldSwap(itemA, itemB)) {
+            result.add(itemB);
+            result.add(itemA);
+        }
         return result;
     }
 
