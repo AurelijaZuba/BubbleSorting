@@ -4,21 +4,23 @@ import java.util.List;
 
 public class BubbleSorting {
 
-
     public List<Integer> sort(List<Integer> objects) {
-        if(objects.isEmpty()) {
+        if (objects.isEmpty()) {
             return objects;
         }
 
-
-        for (int i = 0; i < objects.size() -1; i++) {
+        for (int i = 0; i < objects.size() - 1; i++) {
+            boolean changesMade = false;
             for (int j = 0; j < objects.size() - 1; j++) {
-
                 Integer itemA = objects.get(j);
                 Integer itemB = objects.get(j + 1);
                 if (shouldSwap(itemA, itemB)) {
+                    changesMade = true;
                     swapItems(objects, j);
                 }
+            }
+            if(!changesMade){
+                break;
             }
         }
 
@@ -26,9 +28,9 @@ public class BubbleSorting {
     }
 
     private void swapItems(List<Integer> objects, int index) {
-        Integer tempVar = objects.get(index+1);
+        Integer tempVar = objects.get(index + 1);
 
-        objects.set(index+1, objects.get(index));
+        objects.set(index + 1, objects.get(index));
         objects.set(index, tempVar);
     }
 
