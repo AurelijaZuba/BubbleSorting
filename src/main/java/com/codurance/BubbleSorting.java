@@ -44,6 +44,11 @@ public class BubbleSorting {
             result.add(itemB);
             result.add(itemA);
         }
+        else {
+            result.add(itemA);
+            result.add(itemB);
+        }
+
         return result;
     }
 
