@@ -11,12 +11,14 @@ public class BubbleSorting {
             return objects;
         }
 
-        if(shouldSwap(objects.get(0), objects.get(1))){
-            result.add(objects.get(1));
-            result.add(objects.get(0));
+        final Integer itemB = objects.get(1);
+        final Integer itemA = objects.get(0);
+        if(shouldSwap(itemA, itemB)){
+            result.add(itemB);
+            result.add(itemA);
         }
 
-        if(shouldSwap(objects.get(0), objects.get(1)) && objects.size() == 3){
+        if(shouldSwap(itemA, itemB) && objects.size() == 3){
             result.add(objects.get(2));
         }
 
