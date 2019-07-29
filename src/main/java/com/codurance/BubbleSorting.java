@@ -13,9 +13,20 @@ public class BubbleSorting {
 
         final Integer itemB = objects.get(1);
         final Integer itemA = objects.get(0);
+
         if(shouldSwap(itemA, itemB)){
             result.add(itemB);
             result.add(itemA);
+        }
+
+        if(objects.size() == 4) {
+            Integer itemC = objects.get(2);
+            Integer itemD = objects.get(3);
+
+            if(shouldSwap(itemC, itemD)) {
+                result.add(itemD);
+                result.add(itemC);
+            }
         }
 
         if(shouldSwap(itemA, itemB) && objects.size() == 3){
