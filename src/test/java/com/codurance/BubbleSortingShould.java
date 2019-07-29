@@ -1,9 +1,13 @@
 package com.codurance;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -11,33 +15,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BubbleSortingShould {
 
 
-    @Test
-    void return_empty_list() {
+    @ParameterizedTest
+    @MethodSource("bubbleSortListProvider")
+    void sortsListOfIntegers(List<Integer> input, List<Integer> expected){
         BubbleSorting bubbleSorting = new BubbleSorting();
 
-        List<Integer> actual = bubbleSorting.sort(new ArrayList<>());
-        List<Integer> expected = new ArrayList<>();
-
+        List<Integer> actual = bubbleSorting.sort(input);
         assertThat(actual).isEqualTo(expected);
     }
 
-    @Test
-    void return_sorted_list_for_two_items() {
-        BubbleSorting bubbleSorting = new BubbleSorting();
 
-        List<Integer> actual = bubbleSorting.sort(asList(2, 1));
-        List<Integer> expected = asList(1 ,2);
-
-        assertThat(actual).isEqualTo(expected);
-    }
-
-    @Test
-    void return_sorted_list_for_three_items() {
-        BubbleSorting bubbleSorting = new BubbleSorting();
-
-        List<Integer> actual = bubbleSorting.sort(asList(2, 1, 3));
-        List<Integer> expected = asList(1 ,2, 3);
-
-        assertThat(actual).isEqualTo(expected);
+    private static Stream<Arguments> bubbleSortListProvider(){
+            return Stream.of(Arguments.arguments(asList(), asList()),
+                    Arguments.arguments(asList(2, 1), asList(1, 2)),
+                    Arguments.arguments(asList(2, 1, 3), asList(1, 2, 3)));
     }
 }
