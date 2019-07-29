@@ -11,15 +11,38 @@ public class BubbleSorting {
             return objects;
         }
 
-        final Integer itemB = objects.get(1);
-        final Integer itemA = objects.get(0);
+        if(objects.size() == 2) {
+            Integer itemA = objects.get(0);
+            Integer itemB = objects.get(1);
 
-        if(shouldSwap(itemA, itemB)){
-            result.add(itemB);
-            result.add(itemA);
+            if(shouldSwap(itemA, itemB)) {
+                result.add(itemB);
+                result.add(itemA);
+            }
+
+        }
+
+        if(objects.size() == 3) {
+            Integer itemA = objects.get(0);
+            Integer itemB = objects.get(1);
+
+            if(shouldSwap(itemA, itemB)) {
+                result.add(itemB);
+                result.add(itemA);
+            }
+
+            result.add(objects.get(2));
         }
 
         if(objects.size() == 4) {
+            Integer itemA = objects.get(0);
+            Integer itemB = objects.get(1);
+
+            if(shouldSwap(itemA, itemB)) {
+                result.add(itemB);
+                result.add(itemA);
+            }
+
             Integer itemC = objects.get(2);
             Integer itemD = objects.get(3);
 
@@ -27,10 +50,6 @@ public class BubbleSorting {
                 result.add(itemD);
                 result.add(itemC);
             }
-        }
-
-        if(shouldSwap(itemA, itemB) && objects.size() == 3){
-            result.add(objects.get(2));
         }
 
         return result;
