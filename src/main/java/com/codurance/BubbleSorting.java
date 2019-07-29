@@ -28,6 +28,14 @@ public class BubbleSorting {
             result = processItems(result, objects.get(2), objects.get(3));
         }
 
+        if(objects.size() == 5){
+            result = processItems(result, objects.get(0), objects.get(1));
+
+            result = processItems(result, objects.get(2), objects.get(3));
+
+            result.add(objects.get(4));
+        }
+
         return result;
     }
 
