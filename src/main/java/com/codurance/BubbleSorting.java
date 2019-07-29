@@ -1,57 +1,34 @@
 package com.codurance;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BubbleSorting {
-    public List<Integer> sort(List<Integer> objects) {
-        List<Integer> result = new ArrayList<>();
 
+
+    public List<Integer> sort(List<Integer> objects) {
         if(objects.isEmpty()) {
             return objects;
         }
 
-        if(objects.size() == 2) {
-            result = processItems(result, objects.get(0), objects.get(1));
 
+        for (int i = 0; i < objects.size() -1; i++) {
+
+            Integer itemA = objects.get(i);
+            Integer itemB = objects.get(i + 1);
+            if(shouldSwap(itemA, itemB))
+            {
+                swapItems(objects, i);
+            }
         }
 
-        if(objects.size() == 3) {
-            result = processItems(result, objects.get(0), objects.get(1));
-
-            result.add(objects.get(2));
-        }
-
-        if(objects.size() == 4) {
-            result = processItems(result, objects.get(0), objects.get(1));
-
-            result = processItems(result, objects.get(2), objects.get(3));
-        }
-
-        if(objects.size() == 5){
-            result = processItems(result, objects.get(0), objects.get(1));
-
-            result = processItems(result, objects.get(2), objects.get(3));
-
-            result.add(objects.get(4));
-        }
-
-        return result;
+        return objects;
     }
 
+    private void swapItems(List<Integer> objects, int index) {
+        Integer tempVar = objects.get(index+1);
 
-
-    private List<Integer> processItems(List<Integer> result, Integer itemA, Integer itemB) {
-        if (shouldSwap(itemA, itemB)) {
-            result.add(itemB);
-            result.add(itemA);
-        }
-        else {
-            result.add(itemA);
-            result.add(itemB);
-        }
-
-        return result;
+        objects.set(index+1, objects.get(index));
+        objects.set(index, tempVar);
     }
 
     private boolean shouldSwap(Integer integerA, Integer integerB) {
