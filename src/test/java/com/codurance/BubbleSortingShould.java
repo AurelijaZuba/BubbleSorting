@@ -30,4 +30,14 @@ public class BubbleSortingShould {
 
         assertThat(actual).isEqualTo(expected);
     }
+
+    @Test
+    void return_sorted_list_for_three_items() {
+        BubbleSorting bubbleSorting = new BubbleSorting();
+
+        List<Integer> actual = bubbleSorting.sort(asList(2, 1, 3));
+        List<Integer> expected = asList(1 ,2, 3);
+
+        assertThat(actual).isEqualTo(expected);
+    }
 }
