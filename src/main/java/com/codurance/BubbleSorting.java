@@ -39,6 +39,8 @@ public class BubbleSorting {
         return result;
     }
 
+
+
     private List<Integer> processItems(List<Integer> result, Integer itemA, Integer itemB) {
         if (shouldSwap(itemA, itemB)) {
             result.add(itemB);

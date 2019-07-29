@@ -22,6 +22,15 @@ public class BubbleSortingShould {
         assertThat(actual).isEqualTo(expected);
     }
 
+//
+//    @ParameterizedTest
+//    @MethodSource("bubbleSortListProvider")
+//    void sortsListOfIntegers2(List<Integer> input, List<Integer> expected){
+//        BubbleSorting bubbleSorting = new BubbleSorting();
+//
+//        List<Integer> actual = bubbleSorting.sort2(input);
+//        assertThat(actual).isEqualTo(expected);
+//    }
 
     private static Stream<Arguments> bubbleSortListProvider(){
             return Stream.of(Arguments.arguments(asList(), asList()),
