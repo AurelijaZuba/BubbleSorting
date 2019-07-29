@@ -28,8 +28,8 @@ public class BubbleSortingShould {
                     Arguments.arguments(asList(2, 1, 3), asList(1, 2, 3)),
                     Arguments.arguments(asList(2, 1, 4, 3), asList(1, 2, 3, 4)),
                     Arguments.arguments(asList(2, 1, 4, 3, 5), asList(1, 2, 3, 4, 5)),
-                    Arguments.arguments(asList(1, 2, 4, 3, 5), asList(1, 2, 3, 4, 5))
-
+                    Arguments.arguments(asList(1, 2, 4, 3, 5), asList(1, 2, 3, 4, 5)),
+                    Arguments.arguments(asList(5, 4, 3, 2, 1), asList(1, 2, 3, 4, 5))
             );
     }
 }
