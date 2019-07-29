@@ -12,9 +12,13 @@ public class BubbleSorting {
         if(objects.isEmpty()) {
             return objects;
         }
-
         if(objects.get(0) > objects.get(1)){
-            result = asList(objects.get(1), objects.get(0));
+            result.add(objects.get(1));
+            result.add(objects.get(0));
+        }
+
+        if(objects.get(0) > objects.get(1) && objects.size() == 3){
+            result.add(objects.get(2));
         }
 
         return result;
